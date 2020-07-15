@@ -49,7 +49,7 @@ def train(epochs, data_loader, batch_size, tokenizer, model, device):
 		print (f'Running {epoch+1} epoch')
 
 		for idx, txt in enumerate(data_loader):
-			txt = torch.tensor(tokenizer.encode(txt[0]))
+			txt = torch.tensor(tokenizer.encode(txt[0],add_special_tokens=True,truncation=True,max_length=1024))
 			txt = txt.unsqueeze(0).to(device)
 			outputs = model(txt, labels=txt)
 			loss, _ = outputs[:2]
