@@ -27,7 +27,7 @@ class MyDataset(Dataset):
 			
 			for row in csv_reader:
 				data_str = f"{row[0]}{self.end_of_text_token}"
-				print(data_str)
+				#print(data_str)
 				self.data_list.append(data_str)
 		
 	def __len__(self):
